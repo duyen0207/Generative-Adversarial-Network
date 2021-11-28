@@ -6,18 +6,7 @@ Huấn luyện đồng thời hai mô hình
 
 Quá trình huấn luyện sẽ diễn ra cho đến khi Discriminator D không thể phân biệt được thật giả, xác suất D bằng 1/2 ở mọi nơi.
 ![GAN] (./assets/gan_pipeline.png)
-### Hàm loss
 
-![GAN] (./assets/loss.png)
-* G(z): ảnh được sinh ra từ generator khi cho trước noise đầu vào z với prior p_z
-* E_x là giá trị kì vọng trên toàn bộ dữ liệu thực
-* E_z là giá trị kì vọng trên toàn dữ liệu giả được G tạo ra
-* D(x) là xác suất mà discriminator ước lượng x là dữ liệu thật
-* D(G(z)) là xác suất discriminator ước lượng ảnh giả do G tạo ra là thật
-
-D muốn tối đa hàm loss trên trong khi G muốn tối thiểu nó, G không trực tiếp ảnh hưởng tới D(x) được nên G làm tối thiểu log(1-D(G(z))
-### Thuật toán tối ưu
-![GAN] (./assets/alg.png)
 
 ## Quá trình cài đặt
 ### Chuẩn bị dữ liệu training
@@ -64,11 +53,6 @@ Huấn luyện xen kẽ k lần Discriminator và 1 lần Generator. Ở đây k
 3. Sử dụng backpropagation và một bước tối ưu hóa để cập nhật trọng số của generator
 
 Sau mỗi bước huấn luyện, loss được lưu lại cho mục đích thống kê
-## Kết quả
-Biểu đồ thống kê loss
-
-Sample mới được tạo bởi Generator đã huấn luyện sau 200 epoch trên tập dữ liệu Fashion MNIST
-
 
 ## Tham khảo
 GAN tutorial: https://github.com/udacity/deep-learning-v2-pytorch
