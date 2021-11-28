@@ -5,16 +5,19 @@ Huấn luyện đồng thời hai mô hình
 * Discriminator D: đánh giá và phân biệt đâu là dữ liệu thực và đâu là dữ liệu giả được tạo ra bởi generator
 
 Quá trình huấn luyện sẽ diễn ra cho đến khi Discriminator D không thể phân biệt được thật giả, xác suất D bằng 1/2 ở mọi nơi.
+![GAN] (./assets/gan_pipeline.png)
 ### Hàm loss
 
-
-* G(z): ảnh được sinh ra từ generator khi cho trước noise đầu vào z với prior $p_z$
+![GAN] (./assets/loss.png)
+* G(z): ảnh được sinh ra từ generator khi cho trước noise đầu vào z với prior p_z
 * E_x là giá trị kì vọng trên toàn bộ dữ liệu thực
 * E_z là giá trị kì vọng trên toàn dữ liệu giả được G tạo ra
 * D(x) là xác suất mà discriminator ước lượng x là dữ liệu thật
 * D(G(z)) là xác suất discriminator ước lượng ảnh giả do G tạo ra là thật
 
 D muốn tối đa hàm loss trên trong khi G muốn tối thiểu nó, G không trực tiếp ảnh hưởng tới D(x) được nên G làm tối thiểu log(1-D(G(z))
+### Thuật toán tối ưu
+![GAN] (./assets/alg.png)
 
 ## Quá trình cài đặt
 ### Chuẩn bị dữ liệu training
